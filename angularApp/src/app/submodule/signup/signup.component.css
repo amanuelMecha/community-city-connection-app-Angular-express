@@ -1,0 +1,46 @@
+label{
+    width: 70px;
+}
+input{
+    width: 330px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+#address{
+    font-size: 25px;
+    padding-top: 10px;
+}
+#middlediv{
+    margin-top: 20px;
+}
+.address{
+    margin-left: 30px;
+}
+.address input{
+    width: 300px;
+}
+#signupsignin{
+    width: 30%;
+    padding: 5px;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 35%;
+    margin-right: 10px;
+}
+#signin{
+    width: 30%;
+    padding: 5px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+
+
+#emailExits {
+  margin-left: 100px;
+  color: red;
+}

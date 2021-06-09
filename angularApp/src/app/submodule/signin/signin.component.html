@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4" id='logindiv'>
+    <form [formGroup]="myform" (ngSubmit)="signin()">
+      <img src="../../../assets/img/logo.png"  alt="" style="width: 30%;height: 50px; margin-left: 40%;" ><br>
+      <label for="email" id='label'>Email:</label>
+      <input type="text" id="email" formControlName="email"  id='inputfield'/><br />
+      <label for="password" id='label'>Password:</label>
+      <input type="text" id="password" formControlName="password" id='inputfield' /><br />
+      <input
+        type="submit"
+        value="Signin"
+        class="btn btn-info"
+        [disabled]="!myform.valid"
+       id="signin"
+      />
+      <button class="btn btn-info" [routerLink]="['/signup']"  id="signup">
+        Signup
+      </button>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+

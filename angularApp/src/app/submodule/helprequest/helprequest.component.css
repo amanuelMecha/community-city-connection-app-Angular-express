@@ -1,0 +1,54 @@
+#addservice {
+  text-align: right;
+  margin-right: 120px;
+  padding: 5px;
+  margin-top: 10px;
+}
+#commentandreplayinput {
+  width: 30%;
+  margin-left: 2%;
+  margin-bottom: 0.5%;
+}
+#commentandreplaybutton {
+  margin-left: 0.5%;
+  width: 10%;
+  margin-bottom: 0.5%;
+}
+#previouspage{
+position: left;
+color: darkslategrey;
+margin-left: 20%;
+position: right;
+color: darkslategrey;
+border-top-style: hidden;
+border-right-style: hidden;
+border-left-style: hidden;
+border-bottom-style: hidden;
+background-color: #eee;
+
+
+}
+#previouspage:hover{
+  transform: translateY(-3px);
+  box-shadow: black;
+}#nextpage:hover{
+  transform: translateY(-3px);
+  box-shadow: black;
+}
+#nextpage{
+    position: right;
+color: darkslategrey;
+margin-right: 20%;
+position: right;
+color: darkslategrey;
+border-top-style: hidden;
+border-right-style: hidden;
+border-left-style: hidden;
+border-bottom-style: hidden;
+background-color: #eee;
+}
+#prenext{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+}

@@ -1,0 +1,61 @@
+<div id="addservice">
+  <button class="btn btn-success" (click)="enableform()">
+    + Post help request
+  </button>
+</div>
+
+<div *ngIf="onoff" class="row">
+  <input
+    id="commentandreplayinput"
+    type="text"
+    [(ngModel)]="usertext"
+    (keyup)="addHelpRequest()"
+    class="form-control"
+  />
+  <button
+    (click)="postHelpRequest()"
+    class="btn btn-info"
+    id="commentandreplaybutton"
+  >
+    post help request
+  </button>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>CNO</th>
+      <th>Request</th>
+      <th>Name</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of output; let i = index">
+      <td>{{ indexNumber + i }}</td>
+      <td>{{ x.request }}</td>
+      <td>{{ x.name }}</td>
+      <td>{{ x.contact.email }}</td>
+      <td>{{ x.contact.phone }}</td>
+      <td>{{ x.date | date }}</td>
+      <td>
+        <button (click)="comment(x)" class="btn btn-info">comment</button>
+      </td>
+      <td>
+        <button
+        *ngIf="showdeletebutton === x.contact.email "
+          (click)="deleteFunction(x._id, x.contact.email)"
+          class="btn btn-danger"
+        >
+          delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+ 
+</table>
+<div class="row" id='prenext'>
+  <button (click)="previousFunction()" id="previouspage"><<<<< previous</button>
+  <button (click)="nextFunction()" id="nextpage">next >>>>></button>
+</div>

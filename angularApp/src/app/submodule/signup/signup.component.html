@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4" id="middlediv">
+    <form [formGroup]="myform" (ngSubmit)="signup()">
+      <label for="name">name</label>
+      <input type="text" id="name" formControlName="name" /><br />
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" /><br />
+      <p *ngIf="emailExits" id="emailExits">try another email</p>
+      <label for="password">password</label>
+      <input type="password" id="password" formControlName="password" /><br />
+      <div *ngIf="passwordLength" class="alert alert-danger">
+        <p>password length should be greater than 4 character</p>
+      </div>
+
+      <label for="phone">phone</label>
+      <input type="text" id="phone" formControlName="phone" /><br />
+      <label for="image">choose image</label>
+
+      <input type="file" formControlName="image" /><br />
+      <hr />
+      <div formGroupName="address">
+        <label for="address" id="address">address</label><br />
+        <div class="address">
+          <label for="street">street</label>
+          <input type="text" formControlName="street" /><br />
+          <label for="city">city</label>
+          <input type="text" formControlName="city" /><br />
+          <label for="state">state</label>
+          <input type="text" formControlName="state" /><br />
+          <label for="zipcode">zipcode</label>
+          <input type="text" formControlName="zipcode" />
+          <button
+            class="btn btn-info"
+            [disabled]="!myform.valid"
+            id="signupsignin"
+          >
+            Signup
+          </button>
+          <button class="btn btn-info" [routerLink]="['/']" id="signin">
+            Signin
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>

@@ -1,0 +1,96 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>CNO</th>
+      <th>Request</th>
+      <th>Name</th>
+      <th>email</th>
+      <th>phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ 1 }}</td>
+      <td>{{ output.request }}</td>
+      <td>{{ output.name }}</td>
+      <td>{{ output.contact.email }}</td>
+      <td>{{ output.contact.phone }}</td>
+      <td>
+        <button (click)="comment()" class="btn btn-info">comment</button>
+        <button
+          mat-mini-fab
+          color="accent"
+          aria-label="Example icon button with a plus one icon"
+          (click)="clearNotification()"
+        >
+          {{ notification }}
+        </button>
+      </td>
+    </tr>
+    <div *ngIf="onoff" class="row">
+      <input
+        id="commentandreplayinput"
+        type="text"
+        [(ngModel)]="usertext"
+        (keyup)="addservice()"
+        class="form-control"
+      />
+      <button
+        (click)="postcomment()"
+        class="btn btn-info"
+        id="commentandreplaybutton"
+      >
+        add comment
+      </button>
+      <!-- <button (click)="postcomment()">add comment</button> -->
+    </div>
+    <ul *ngFor="let x of output.comment">
+      <mat-list>
+        <mat-list-item
+          ><p>{{ x.name }} {{ x.text }}</p>
+        </mat-list-item>
+      </mat-list>
+      <!-- <li>{{ x.name }} {{ x.text }}</li> -->
+
+      <ul *ngFor="let y of x.reply">
+        <mat-list>
+          <mat-list-item
+            ><p>{{ y.name }} - {{ y.message }}</p>
+          </mat-list-item>
+        </mat-list>
+        <!-- <li>{{ y.name }} - {{ y.message }}</li> -->
+      </ul>
+      <div >
+           <form [formGroup]="myForm" (ngSubmit)="replyFunction(x?.id)" class="row">
+          <input
+            id="commentandreplayinput"
+            formControlName="textInput"
+            class="form-control"
+          />
+          <button
+            type="submit"
+            class="btn btn-info"
+            id="commentandreplaybutton"
+          >
+            reply
+          </button>
+        </form>
+        
+        
+        <!-- <input
+      id="commentandreplayinput"
+        [(ngModel)]="text"
+        #current
+        (keyup)="textFunction()"
+        class="form-control"
+      />
+      <button (click)="replyFunction(x?.id)" class="btn btn-info" id="commentandreplaybutton" >reply</button> -->
+      <!-- <button
+        (click)="replyFunction(x?.id)"
+      >
+        reply
+      </button> -->
+      </div>
+    </ul>
+  </tbody>
+</table>

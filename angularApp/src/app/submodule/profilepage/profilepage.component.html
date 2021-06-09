@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/profile']">Profile</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="dropdown-item" [routerLink]="['/helprequest']"
+          >help requests</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" [routerLink]="['/serviceproviders']"
+          >service providers</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+
+    <p id="welcome">Welcome- {{ data?.name }}</p>
+    <button id="update" (click)="updatecity()">update</button>
+    <button id="signout" (click)="signout()" *ngIf="tokenForSignout">signout</button>
+  </div>
+</nav>
+
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile><img src="../../../assets/img/aman.jpg" style="height:200px; border-radius: 30px;" alt=""> </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem">FullName: {{ data?.name }}</mat-list-item>
+      <mat-list-item role="listitem">Email: {{ data?.email }}</mat-list-item>
+      <mat-list-item role="listitem">Phone: {{ data?.phone }}</mat-list-item>
+      <h3><b>Address</b></h3>
+      <mat-divider></mat-divider>
+      <mat-list-item role="listitem">
+        Street:  {{ data?.address.street }}</mat-list-item
+      >
+      <mat-list-item role="listitem">
+        City: {{ data?.address.city }}</mat-list-item
+      >
+      <mat-list-item role="listitem"
+        >State:  {{ data?.address.state }}</mat-list-item
+      >
+      <mat-list-item role="listitem">
+        Zipcode:  {{ data?.address.zipcode }}</mat-list-item
+      >
+    </mat-list>
+
+    <div></div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+   
+      <span *ngIf="onoff" id="updateinput">
+        <form [formGroup]="myform">
+          <label for="changecity"> Changecity</label><br>
+          <input [value]="1234" formControlName="text" /><br><br>
+          <button (click)="saveupdate()" class="btn btn-success btn-block">save</button>
+        </form>
+      </span>
+    </mat-grid-tile
+  >
+</mat-grid-list>
